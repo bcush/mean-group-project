@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     fs       = require('fs');
 
 // Connect to our MongoDB database
-mongoose.connect('mongodb://localhost/belt_exam_redo');
+mongoose.connect('mongodb://localhost/mean-group-project');
 
 // Set up our models path variable
 var models_path = path.join(__dirname, '../models/');

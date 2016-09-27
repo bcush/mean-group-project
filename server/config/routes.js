@@ -1,5 +1,4 @@
 // Require some of the controllers we will use
-var questions = require('../controllers/Questions.js');
 var users = require('../controllers/Users.js');
 
 // What is module.exports?
@@ -27,9 +26,6 @@ module.exports = function(app) {
 
   // These will be our protected routes
   app.use(userAuth);
-  app.post('/questions', questions.ask);
-  app.post('/questions/:id', questions.getOne);
-  app.get('/questions', questions.getAll);
 };
 
 // This is our function that checks for user session
