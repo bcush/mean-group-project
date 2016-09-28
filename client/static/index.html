@@ -37,52 +37,116 @@
     $(document).ready(function(){
       $('.button-collapse').sideNav();
       $('#calendar').fullCalendar();
+      $('.modal-trigger').leanModal();
     });
   </script>
-
 </head>
 <body>
 
   <!-- navbar -->
-<div class="navbar-fixed">
-  <nav class="light-blue">
-    <div class="nav-wrapper">
-      <a href="#" id="logo-container" class="brand-logo center">Barbers</a>
-      <a href="#" data-activates="nav-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Browse</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-      <ul class="side-nav" id="nav-menu">
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Browse</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
+  <div class="navbar-fixed">
+    <nav class="light-blue">
+      <div class="nav-wrapper">
+        <a href="#" id="logo-container" class="brand-logo center">Barbers</a>
+        <a href="#" data-activates="nav-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Browse</a></li>
+          <li><a class="modal-trigger" href="#login">Login</a></li>
+          <li><a class="modal-trigger" href="#register">Register</a></li>
+        </ul>
+        <ul class="side-nav" id="nav-menu">
+          <li><a class="modal-trigger" href="#login">Login</a></li>
+          <li><a class="modal-trigger" href="#register">Register</a></li>
+          <li><div class="divider"></div></li>
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Browse</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <!-- end navbar -->
 
   <br>
 
   <!-- partials go here -->
-  <div ng-view="">
-  </div>
-
   <div class="container">
-    <div id="calendar"></div>
+    <div ng-view="">
+    </div>
   </div>
 
-  <ul>
-    <li><a href="#/search">Find Barber</a></li>
-    <li><a href="#/appSet">Set Appointment</a></li>
-  </ul>
+  <!-- <div class="container">
+    <div id="calendar"></div>
+  </div> -->
 
-</div>
+
+  <!-- modal: login -->
+  <div id="login" class="modal">
+    <div class="modal-content">
+      <h4>Login to your account</h4>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" id="email">
+            <label for="email">E-mail</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" id="password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action btn-flat btn waves-effect" type="button">Login</button>
+    </form>
+    </div>
+  </div>
+
+  <!-- modal: registration -->
+  <div id="register" class="modal">
+    <div class="modal-content">
+      <h4>Register for an account</h4>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" id="name">
+            <label for="name">Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" id="email">
+            <label for="email">E-mail</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" id="phone">
+            <label for="phone">Telephone</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" id="zip">
+            <label for="zip">ZIP</label>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" id="password">
+            <label for="password">Password</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" id="passconf">
+            <label for="passconf">Confirm Password</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action btn-flat btn waves-effect" type="button">Create Account</button>
+    </div>
+  </div>
 
 </body>
 </html>

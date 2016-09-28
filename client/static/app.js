@@ -22,8 +22,7 @@ app.config(function($routeProvider, $httpProvider) {
           controller:  'usersController'
         })
         .when('/userProfile', {
-          templateUrl:'partials/userProfile.html',
-          controller:'usersController'
+          templateUrl:'partials/userProfile.html'
         })
         .when('/barberProfile', {
           templateUrl:'partials/barberProfile.html',
