@@ -1,0 +1,15 @@
+<div ng-controller="barbersController">
+	<h3>Add Barber</h3>
+	<form ng-submit="add(newBarber)">
+		<label>Barber: </label>
+    <input type="text" ng-model="newBarber.name">
+
+		<label>Location:</label>
+    <input type="text" ng-model="newBarber.location">
+
+    <label>Phone:</label>
+    <input type="text" ng-model="newBarber.phone">
+
+		<button>Submit Barber</button>
+	</form>
+</div>

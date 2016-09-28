@@ -1,7 +1,7 @@
 // Require some of the controllers we will use
 var users = require('../controllers/Users.js');
 var barbers = require('../controllers/Barbers.js');
-var calendars = require('../controllers/Calendars.js');
+var appointments = require('../controllers/Appointments.js');
 
 // What is module.exports?
 // By default, JavaScript doesn’t have a way to pass information between
@@ -25,6 +25,8 @@ module.exports = function(app) {
   // These will be our unprotected routes
   app.post('/register', users.register);
   app.post('/login', users.login);
+  app.get('/users/whoami', users.whoami);
+ // app.delete('/users/:user_id', users.delete);
 
   // This is our routes for Barbers
   app.get('/barbers', barbers.getAll);
@@ -32,18 +34,17 @@ module.exports = function(app) {
   app.post('/barbers', barbers.add);
   app.delete('/barbers/:barber_id', barbers.delete);
 
+  // This is our routes for Appointments
+  app.get('/appointments/:barber_id', appointments.getAll);
+  app.get('/appointments/:barber_id/:date', appointments.get);
+  app.post('/appointments', appointments.add);
+  app.delete('/appointments/:appointment_id', appointments.delete);
+
   // This is our routes for Calendars
   app.get('/calendars/:barber_id', calendars.getAll);
   app.get('/calendars/:barber_id/:date', calendars.get);
   app.post('/calendars', calendars.add);
   app.delete('/calendars/:calendar_id', calendars.delete);
-
-  // This is our routes for Users
-  // app.get('/users');
-  // app.get('/users/:user_id');
-  app.post('/register', users.register);
-  app.post('/login', users.login);
-  // app.delete('/users/:user_id', users.delete);
 
   // These will be our protected routes
   app.use(userAuth);
