@@ -33,19 +33,21 @@
   <script type="text/javascript" src="controllers/usersController.js"></script>
   <script type="text/javascript" src="controllers/barbersController.js"></script>
 
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.button-collapse').sideNav();
+      $('#calendar').fullCalendar();
+    });
+  </script>
+
 </head>
 <body>
 
   <!-- navbar -->
+<div class="navbar-fixed">
   <nav class="light-blue">
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.button-collapse').sideNav();
-        $('#calendar').fullCalendar();
-      });
-    </script>
-    <div class="nav-wrapper navbar-fixed container">
-      <a href="#" id="logo-container" class="brand-logo">Barbers</a>
+    <div class="nav-wrapper">
+      <a href="#" id="logo-container" class="brand-logo center">Barbers</a>
       <a href="#" data-activates="nav-menu" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Search</a></li>
@@ -61,8 +63,16 @@
       </ul>
     </div>
   </nav>
+</div>
+
   <!-- end navbar -->
-  <div id="calendar"></div>
+
+  <!-- partials go here -->
+  <br>
+  <div class="container">
+    <div id="calendar"></div>
+  </div>
+
   <ul>
     <li><a href="#/search">Find Barber</a></li>
     <li><a href="#/appSet">Set Appointment</a></li>
