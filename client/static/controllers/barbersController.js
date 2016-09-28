@@ -8,11 +8,11 @@ app.controller('barbersController', ['$scope', '$location', 'BarberFactory', fun
     });
   }
   $scope.getAll = function(){
-    barberFactory.getAll(function(data){
+    BarberFactory.getAll(function(data){
       $scope.barbers = data
     });
   }
-
+  $scope.getAll();
   // $scope.login = function(user){
   //   BarberFactory.login(user, function() {
   //     $location.url('/barbers');
