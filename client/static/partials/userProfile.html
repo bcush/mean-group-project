@@ -4,19 +4,20 @@
         {{user.phoneNumber}}
         {{user.zipcode}}-->
   </div>
-  <h1>Nearby Barbers</h1>
-  <table>
-    <tr>
-      <th>Barbers Name</th>
-      <th>Location</th>
-      <th>Phone</th>
-      <th>Shop</th>
-    </tr>
-    <tr ng-repeat="barber in barbers"><!-- add ng-repeat take hard code out-->
-      <td>{{barber.name}}</td>
-      <td>{{barber.location}}</td>
-      <td>{{barber.phone}}</td>
-      <td>Nappy Cuts</td>
-    </tr>
-  </table>
+  <div ng-controller="barbersController">
+    <h1>Nearby Barbers</h1>
+    <table>
+      <tr>
+        <th>Barbers Name</th>
+        <th>Location</th>
+        <th>Phone</th>
+        <th>Shop</th>
+      </tr>
+      <tr ng-repeat="barber in barbers"><!-- add ng-repeat take hard code out-->
+        <td>{{barber.name}}</td>
+        <td>{{barber.location}}</td>
+        <td>{{barber.phone}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
