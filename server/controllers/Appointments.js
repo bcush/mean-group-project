@@ -1,8 +1,8 @@
 // Require some packages that we will use
 var mongoose = require('mongoose');
 
-// Make our Barber model available
-var Barber = mongoose.model('Barber');
+// Make our Appointment model available
+var Appointment = mongoose.model('Appointment');
 
 // What is module.exports?
 // By default, JavaScript doesn’t have a way to pass information between
@@ -23,47 +23,47 @@ var Barber = mongoose.model('Barber');
 
 module.exports = {
 
-  // Add a new Barber
+  // Add a new Appointment
   add: function(req,res) {
-    var barber = new Barber(req.body);
-    barber.save(function(err) {
+    var appointment = new Appointment(req.body);
+    appointment.save(function(err) {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send("Barber successfully saved.");
+        res.status(200).send("Appointment successfully saved.");
       }
     });
   },
 
-  // Get all Barbers
+  // Get all Appointments
   getAll: function(req, res) {
-    Barber.find({}).exec(function(err, barbers) {
+    Appointment.find({}).exec(function(err, appointments) {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.json(barbers);
+        res.json(appointments);
       }
     });
   },
 
-  // Get a Barber
+  // Get a Appointment
   get: function(res, req) {
-    Barber.update({_id: req.params.id}).exec(function(err, barber) {
+    Appointment.update({_id: req.params.id}).exec(function(err, appointment) {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.json(barber);
+        res.json(appointment);
       }
     });
   },
 
-  // Delete a Barber
+  // Delete a Appointment
   delete: function(req, res) {
-    Barber.remove({_id: req.params.id}).exec(function(err) {
+    Appointment.remove({_id: req.params.id}).exec(function(err) {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send("Barber successfully deleted.");
+        res.status(200).send("Appointment successfully deleted.");
       }
     });
   }
