@@ -2,7 +2,8 @@
 var express    = require('express'),
     path       = require('path'),
     bodyParser = require('body-parser'),
-    session    = require('express-session');
+    session    = require('express-session'),
+    morgan     = require('morgan');
 
 // Create variable to contain Session config
 var sessionConfig = {
@@ -33,11 +34,14 @@ require('./server/config/mongoose.js');
   // Allow our app to parse JSON
   app.use(bodyParser.json());
 
+// Configure our Morgan format
+  app.use(morgan('dev'));
+
 // Log res.session with every HTTP request/response
-// app.use(function(req, res, next) {
-//   console.log(req.session);
-//   next();
-// });
+app.use(function(req, res, next) {
+  console.log(req.session);
+  next();
+});
 
 // Set static path with every HTTP request/response
 app.use(express.static(path.join(__dirname, "client", "static")));

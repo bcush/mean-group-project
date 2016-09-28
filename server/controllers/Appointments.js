@@ -1,8 +1,8 @@
 // Require some packages that we will use
 var mongoose = require('mongoose');
 
-// Make our Calendar model available
-var Calendar = mongoose.model('Calendar');
+// Make our Appointment model available
+var Appointment = mongoose.model('Appointment');
 
 // What is module.exports?
 // By default, JavaScript doesn’t have a way to pass information between
@@ -23,48 +23,47 @@ var Calendar = mongoose.model('Calendar');
 
 module.exports = {
 
-  // Add a new Calendar
+  // Add a new Appointment
   add: function(req,res) {
-    console.log("calendars.add called");
-    var calendar = new Calendar(req.body);
-    calendar.save(function(err) {
+    var appointment = new Appointment(req.body);
+    appointment.save(function(err) {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send("Calendar successfully saved.");
+        res.status(200).send("Appointment successfully saved.");
       }
     });
   },
 
-  // Get all Calendars
+  // Get all Appointments
   getAll: function(req, res) {
-    Calendar.find({}).exec(function(err, calendars) {
+    Appointment.find({}).exec(function(err, appointments) {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.json(calendars);
+        res.json(appointments);
       }
     });
   },
 
-  // Get a Calendar
+  // Get a Appointment
   get: function(res, req) {
-    Calendar.update({_id: req.params.id}).exec(function(err, calendar) {
+    Appointment.update({_id: req.params.id}).exec(function(err, appointment) {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.json(calendar);
+        res.json(appointment);
       }
     });
   },
 
-  // Delete a Calendar
+  // Delete a Appointment
   delete: function(req, res) {
-    Calendar.remove({_id: req.params.id}).exec(function(err) {
+    Appointment.remove({_id: req.params.id}).exec(function(err) {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send("Calendar successfully deleted.");
+        res.status(200).send("Appointment successfully deleted.");
       }
     });
   }

@@ -25,7 +25,6 @@ module.exports = {
 
   // Add a new Barber
   add: function(req,res) {
-    console.log("barbers.add called");
     var barber = new Barber(req.body);
     barber.save(function(err) {
       if (err) {
