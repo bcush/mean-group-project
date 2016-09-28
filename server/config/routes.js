@@ -25,14 +25,14 @@ module.exports = function(app) {
   app.post('/register', users.register);
   app.post('/login', users.login);
 
-  // These will be our protected routes
-  app.use(userAuth);
-
   // This is our routes for Barbers
   app.post('/barbers', barbers.add);
   app.get('/barbers', barbers.getAll);
   app.get('/barbers/:id', barbers.get);
   app.delete('/barbers/:id', barbers.delete);
+
+  // These will be our protected routes
+  app.use(userAuth);
 
   // This is our routes for Calendars
 };
