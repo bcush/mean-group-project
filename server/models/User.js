@@ -10,7 +10,8 @@ var UserSchema = new mongoose.Schema({
   phone: { type: String, require: true },
   zip: { type: Number, require: true },
   notes: String,
-  _barberFave: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Barber' }],
+  auth: { type: Number, require: true },
+  _barberFave: { type: mongoose.Schema.Types.ObjectId, ref: 'Barber' },
   password: { type: String, required: true }
 }, {timestamps: true});
 
