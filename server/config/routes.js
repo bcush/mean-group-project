@@ -25,6 +25,8 @@ module.exports = function(app) {
   // These will be our unprotected routes
   app.post('/register', users.register);
   app.post('/login', users.login);
+  app.get('/users/whoami', users.whoami);
+ // app.delete('/users/:user_id', users.delete);
 
   // This is our routes for Barbers
   app.get('/barbers', barbers.getAll);
@@ -43,14 +45,6 @@ module.exports = function(app) {
   app.get('/calendars/:barber_id/:date', calendars.get);
   app.post('/calendars', calendars.add);
   app.delete('/calendars/:calendar_id', calendars.delete);
-
-  // This is our routes for Users
-  // app.get('/users');
-  // app.get('/users/:user_id');
-  app.post('/register', users.register);
-  app.post('/login', users.login);
-  // app.delete('/users/:user_id', users.delete);
-  app.get('/users/whoami', users.whoami);
 
   // These will be our protected routes
   app.use(userAuth);
