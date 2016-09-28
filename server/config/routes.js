@@ -40,12 +40,6 @@ module.exports = function(app) {
   app.post('/appointments', appointments.add);
   app.delete('/appointments/:appointment_id', appointments.delete);
 
-  // This is our routes for Calendars
-  app.get('/calendars/:barber_id', calendars.getAll);
-  app.get('/calendars/:barber_id/:date', calendars.get);
-  app.post('/calendars', calendars.add);
-  app.delete('/calendars/:calendar_id', calendars.delete);
-
   // These will be our protected routes
   app.use(userAuth);
 };
