@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 // Make our User model available
 var User = mongoose.model('User');
 
+var bcrypt = require('bcrypt-nodejs');
+
 // What is module.exports?
 // By default, JavaScript doesn’t have a way to pass information between
 // different files. module.exports is Node’s way of fixing this problem.
@@ -26,8 +28,6 @@ module.exports = {
   // User controller for registering a new user
   // Validations: [form data] password == pw_confirm
   register: function(req, res) {
-    console.log("users.register called");
-    console.log(req.body);
     if (req.body.password != req.body.pw_confirm) {
       // HTTP Status 400: Client Error - Bad Request
       res.sendStatus(400);
@@ -48,20 +48,29 @@ module.exports = {
     }
   },
 
+  // Returns currently logged in user
+  whoami: function(req, res) {
+    if (req.session) {
+      res.send(req.session.user);
+    } else {
+      res.sendStatus(500);
+    }
+  },
+
   // User controller for logging in user
   // Validations: [form data] password == found user password
   login: function(req, res) {
-    console.log("users.login called");
     User.findOne({username: req.body.username}).exec(function(err, user) {
-      if (user.password != req.body.password) {
-        // HTTP Status 400: Client Error - Bad Request
-        res.sendStatus(400);
-      } else {
+      if (bcrypt.compareSync(req.body.password, user.password)) {
         // Hang user property on user
+        console.log('its good');
         req.session.user = user;
 
         // Send user object back in response
         res.send(user);
+      } else {
+        // HTTP Status 400: Client Error - Bad Request
+        res.sendStatus(400);
       }
     });
 
