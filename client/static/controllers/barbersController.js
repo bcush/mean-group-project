@@ -6,7 +6,12 @@ app.controller('barbersController', ['$scope', '$location', 'BarberFactory', fun
       console.log('from barbersController');
       $location.url('#/barbers');
     });
-  };
+  }
+  $scope.getAll = function(){
+    barberFactory.getAll(function(data){
+      $scope.barbers = data
+    });
+  }
 
   // $scope.login = function(user){
   //   BarberFactory.login(user, function() {

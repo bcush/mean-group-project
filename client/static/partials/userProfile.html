@@ -12,10 +12,10 @@
       <th>Phone</th>
       <th>Shop</th>
     </tr>
-    <tr><!-- add ng-repeat take hard code out-->
-      <td>Larry Lira</td>
-      <td>In ya Hood</td>
-      <td>818-911-9111</td>
+    <tr ng-repeat="barber in barbers"><!-- add ng-repeat take hard code out-->
+      <td>{{barber.name}}</td>
+      <td>{{barber.location}}</td>
+      <td>{{barber.phone}}</td>
       <td>Nappy Cuts</td>
     </tr>
   </table>
