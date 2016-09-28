@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="barberApp">
+<head>
+  <meta charset="utf-8">
+  <title>Barbershops</title>
+
+  <!-- Load our AngularJS Libraries -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.8/angular-messages.min.js"></script> -->
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+  <!-- fullCalendar -->
+  <!-- <script src="assets/moment.min.js"></script>
+  <link rel="stylesheet" href="assets/fullcalendar.min.css">
+  <script src="assets/fullcalendar.min.js"></script> -->
+
+  <!--   Load our main app -->
+  <!-- <script type="text/javascript" src="/app.js"></script> -->
+
+  <!-- Load our Angular Factories -->
+  <!-- <script type="text/javascript" src="/factories/userFactory.js"></script>
+  <script type="text/javascript" src="/factories/barberFactory.js"></script> -->
+
+  <!-- Load our Angular Controllers -->
+  <!-- <script type="text/javascript" src="controllers/usersController.js"></script>
+  <script type="text/javascript" src="controllers/barbersController.js"></script> -->
+
+</head>
+<body>
+
+  <!-- navbar -->
+  <nav class="light-blue">
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.button-collapse').sideNav();
+        $('#calendar').fullCalendar();
+      });
+    </script>
+    <div class="nav-wrapper navbar-fixed container">
+      <a href="#" id="logo-container" class="brand-logo">Barbers</a>
+      <a href="#" data-activates="nav-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Browse</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+      <ul class="side-nav" id="nav-menu">
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Browse</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- end navbar -->
+<div class="container">
+  <div class="row">
+  <form class="col s12">
+    <div class="input-field col s6">
+      <input type="text" id="name">
+      <label for="name">Name</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="text" id="phone">
+      <label for="phone">Phone</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="text" id="stuff">
+      <label for="stuff">More stuff...</label>
+    </div>
+  </div>
+  <a class="waves-effect waves-light btn">Submit</a>
+  </form>
+</div>
+
+</body>
+</html>
