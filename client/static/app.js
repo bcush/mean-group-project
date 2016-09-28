@@ -21,6 +21,18 @@ app.config(function($routeProvider, $httpProvider) {
           templateUrl: 'partials/login.html',
           controller:  'usersController'
         })
+        .when('/userProfile', {
+          templateUrl:'partials/userProfile.html',
+          controller:'usersController'
+        })
+        .when('/barberProfile', {
+          templateUrl:'partials/barberProfile.html',
+          controller:'barbersController'
+        })
+        .when('/addBarber', {
+          templateUrl:'partials/addBarber.html',
+          controller:'barbersController'
+        })
        .otherwise({
           // Otherwise ???
           redirectTo: '/login'
