@@ -57,7 +57,7 @@ module.exports = {
       }else{
         res.json(user);
       }
-    })
+    });
   },
   // Returns currently logged in user
   whoami: function(req, res) {
