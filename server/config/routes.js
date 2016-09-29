@@ -25,6 +25,7 @@ module.exports = function(app) {
   // These will be our unprotected routes
   app.post('/register', users.register);
   app.post('/login', users.login);
+  app.get('/logout', users.logout);
   app.get('/users/whoami', users.whoami);
   app.get('/users', users.getUser);
  // app.delete('/users/:user_id', users.delete);
