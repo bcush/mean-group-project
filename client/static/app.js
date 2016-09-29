@@ -18,7 +18,7 @@ app.config(function($routeProvider, $httpProvider) {
       $routeProvider
         .when('/login', {
           // Angular route to present login fields
-          templateUrl: 'partials/login.html',
+          templateUrl: 'partials/landingPage.html',
           controller:  'usersController'
         })
         .when('/search', {
@@ -26,7 +26,8 @@ app.config(function($routeProvider, $httpProvider) {
           controller: 'barbersController'
         })
         .when('/userProfile', {
-          templateUrl:'partials/userProfile.html'
+          templateUrl:'partials/userProfile.html',
+          controller:  'usersController'
         })
         .when('/barberProfile', {
           templateUrl:'partials/barberProfile.html',
@@ -35,6 +36,10 @@ app.config(function($routeProvider, $httpProvider) {
         .when('/addBarber', {
           templateUrl:'partials/addBarber.html',
           controller:'barbersController'
+        })
+       .when('/addAppointment', {
+          templateUrl:'partials/addAppointment.html',
+          controller:'appointmentsController'
         })
        .otherwise({
           // Otherwise ???

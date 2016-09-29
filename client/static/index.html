@@ -28,60 +28,129 @@
   <!-- Load our Angular Factories -->
   <script type="text/javascript" src="/factories/userFactory.js"></script>
   <script type="text/javascript" src="/factories/barberFactory.js"></script>
+  <script type="text/javascript" src="/factories/appointmentFactory.js"></script>
 
   <!-- Load our Angular Controllers -->
   <script type="text/javascript" src="controllers/usersController.js"></script>
   <script type="text/javascript" src="controllers/barbersController.js"></script>
+  <script type="text/javascript" src="controllers/appointmentsController.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function(){
       $('.button-collapse').sideNav();
       $('#calendar').fullCalendar();
+      $('.modal-trigger').leanModal();
     });
   </script>
-
 </head>
 <body>
 
   <!-- navbar -->
-<div class="navbar-fixed">
-  <nav class="light-blue">
-    <div class="nav-wrapper">
-      <a href="#" id="logo-container" class="brand-logo center">Barbers</a>
-      <a href="#" data-activates="nav-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Browse</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-      <ul class="side-nav" id="nav-menu">
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Browse</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
+  <div class="navbar-fixed">
+    <nav class="light-blue">
+      <div class="nav-wrapper">
+        <a href="#" id="logo-container" class="brand-logo center">Barbers</a>
+        <a href="#" data-activates="nav-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Browse</a></li>
+          <li><a class="modal-trigger" href="#login">Login</a></li>
+          <li><a class="modal-trigger" href="#register">Register</a></li>
+        </ul>
+        <ul class="side-nav" id="nav-menu">
+          <li><a class="modal-trigger" href="#login">Login</a></li>
+          <li><a class="modal-trigger" href="#register">Register</a></li>
+          <li><div class="divider"></div></li>
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Browse</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <!-- end navbar -->
 
   <br>
 
   <!-- partials go here -->
-  <div ng-view="">
-  </div>
-
   <div class="container">
-    <div id="calendar"></div>
+    <div ng-view="">
+    </div>
   </div>
 
-  <ul>
-    <li><a href="#/search">Find Barber</a></li>
-    <li><a href="#/appSet">Set Appointment</a></li>
-  </ul>
+  <!-- <div class="container">
+    <div id="calendar"></div>
+  </div> -->
 
+
+  <!-- modal: login -->
+<div ng-controller="usersController">
+  <div id="login" class="modal">
+    <div class="modal-content">
+      <h4>Login to your account</h4>
+      <form ng-submit="login(user)">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="email" id="email" ng-model="user.email">
+            <label for="email">E-mail</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="password" id="password" ng-model="user.password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action btn-flat btn waves-effect" type="submit">Login</button>
+    </form>
+    </div>
+  </div>
+
+  <!-- modal: registration -->
+  <div id="register" class="modal">
+    <div class="modal-content">
+      <h4>Register for an account</h4>
+      <form ng-submit="register(login_user)">
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" id="name" ng-model="login_user.name">
+            <label for="name">Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="email" id="email" ng-model="login_user.email">
+            <label for="email">E-mail</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" ng-model="login_user.phone">
+            <label for="phone">Telephone</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" ng-model="login_user.zip">
+            <label for="zip">ZIP</label>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="password" ng-model="login_user.password">
+            <label for="password">Password</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="password" ng-model="login_user.pw_confirm">
+            <label for="passconf">Confirm Password</label>
+          </div>
+        </div>
+      <!-- </form> -->
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action btn-flat btn waves-effect" type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 </body>

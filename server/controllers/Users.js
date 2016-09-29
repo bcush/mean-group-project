@@ -47,8 +47,10 @@ module.exports = {
       });
     }
   },
+
   getUser: function(req,res){
-    User.findOne({_id:req.session.user.id}, function(err, user){
+    User.findOne({_id:req.session.user._id}, function(err, user){
+      console.log(req.session);
       if(err){
         console.log('Couldnt find user');
         res.sendStatus(400);
@@ -66,13 +68,23 @@ module.exports = {
     }
   },
 
+  // Returns currently logged in user
+  logout: function(req, res) {
+    if (req.session) {
+      req.session.destroy();
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(500);
+    }
+  },
+
   // User controller for logging in user
   // Validations: [form data] password == found user password
   login: function(req, res) {
-    User.findOne({username: req.body.username}).exec(function(err, user) {
+    console.log(req.body);
+    User.findOne({email: req.body.email}).exec(function(err, user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
         // Hang user property on user
-        console.log('its good');
         req.session.user = user;
 
         // Send user object back in response

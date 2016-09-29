@@ -1,0 +1,26 @@
+  <h3>Add Appointment</h3>
+  <form ng-submit="add(newAppointment)">
+    <label>Date: </label>
+    <input type="date" ng-model="newAppointment.date">
+
+    <label>Time:</label>
+    <select class="browser-default" ng-model="newAppointment.time">
+      <option value="9">9:00 am</option>
+      <option value="10">10:00 am</option>
+      <option value="11">11:00 am</option>
+      <option value="12">12:00 pm</option>
+      <option value="13">1:00 pm</option>
+      <option value="14">2:00 pm</option>
+      <option value="15">3:00 pm</option>
+      <option value="16">4:00 pm</option>
+      <option value="17">5:00 pm</option>
+    </select>
+    <br>
+
+    <!-- Hidden inputs -->
+    <input type="hidden" ng-model="newAppointment._user">
+    <input type="hidden" ng-model="newAppointment._barber">
+
+		<button>Submit Appointment</button>
+	</form>
+</div>
