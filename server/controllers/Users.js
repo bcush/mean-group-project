@@ -47,7 +47,16 @@ module.exports = {
       });
     }
   },
-
+  getUser: function(req,res){
+    User.findOne({_id:req.session.user.id}, function(err, user){
+      if(err){
+        console.log('Couldnt find user');
+        res.sendStatus(400);
+      }else{
+        res.json(user);
+      }
+    })
+  },
   // Returns currently logged in user
   whoami: function(req, res) {
     if (req.session) {

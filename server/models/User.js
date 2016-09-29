@@ -5,7 +5,13 @@ var bcrypt = require('bcrypt-nodejs');
 // Define our User schema
 // Require username and require unique value
 var UserSchema = new mongoose.Schema({
-  username: { type: String, require: true, index: { unique: true }},
+  name: { type: String, require: true },
+  email: { type: String, require: true, index: { unique: true }},
+  phone: { type: String, require: true },
+  zip: { type: Number, require: true },
+  notes: String,
+  auth: { type: Number, require: true },
+  _barberFave: { type: mongoose.Schema.Types.ObjectId, ref: 'Barber' },
   password: { type: String, required: true }
 }, {timestamps: true});
 
