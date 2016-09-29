@@ -36,6 +36,7 @@ module.exports = function(app) {
   app.delete('/barbers/:barber_id', barbers.delete);
 
   // This is our routes for Appointments
+  app.get('/appointments', appointments.getAll);
   app.get('/appointments/:barber_id', appointments.getAll);
   app.get('/appointments/:barber_id/:date', appointments.get);
   app.post('/appointments', appointments.add);
