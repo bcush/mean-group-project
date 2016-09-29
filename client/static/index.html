@@ -84,25 +84,26 @@
 
 
   <!-- modal: login -->
+<div ng-controller="usersController">
   <div id="login" class="modal">
     <div class="modal-content">
       <h4>Login to your account</h4>
-      <form action="#" method="post">
+      <form ng-submit="login(user)">
         <div class="row">
           <div class="input-field col s12">
-            <input type="text" id="email">
+            <input type="email" id="email" ng-model="user.email">
             <label for="email">E-mail</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input type="text" id="password">
+            <input type="password" id="password" ng-model="user.password">
             <label for="password">Password</label>
           </div>
         </div>
     </div>
     <div class="modal-footer">
-      <button class="modal-action btn-flat btn waves-effect" type="button">Login</button>
+      <button class="modal-action btn-flat btn waves-effect" type="submit">Login</button>
     </form>
     </div>
   </div>
@@ -111,44 +112,46 @@
   <div id="register" class="modal">
     <div class="modal-content">
       <h4>Register for an account</h4>
-      <form action="#" method="post">
+      <form ng-submit="register(login_user)">
         <div class="row">
           <div class="input-field col s6">
-            <input type="text" id="name">
+            <input type="text" id="name" ng-model="login_user.name">
             <label for="name">Name</label>
           </div>
           <div class="input-field col s6">
-            <input type="text" id="email">
+            <input type="email" id="email" ng-model="login_user.email">
             <label for="email">E-mail</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input type="text" id="phone">
+            <input type="text" ng-model="login_user.phone">
             <label for="phone">Telephone</label>
           </div>
           <div class="input-field col s6">
-            <input type="text" id="zip">
+            <input type="text" ng-model="login_user.zip">
             <label for="zip">ZIP</label>
           </div>
         </div>
         <br>
         <div class="row">
           <div class="input-field col s6">
-            <input type="text" id="password">
+            <input type="password" ng-model="login_user.password">
             <label for="password">Password</label>
           </div>
           <div class="input-field col s6">
-            <input type="text" id="passconf">
+            <input type="password" ng-model="login_user.pw_confirm">
             <label for="passconf">Confirm Password</label>
           </div>
         </div>
-      </form>
+      <!-- </form> -->
     </div>
     <div class="modal-footer">
-      <button class="modal-action btn-flat btn waves-effect" type="button">Create Account</button>
+      <button class="modal-action btn-flat btn waves-effect" type="submit">Create Account</button>
+      </form>
     </div>
   </div>
+</div>
 
 </body>
 </html>
