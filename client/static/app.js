@@ -18,7 +18,7 @@ app.config(function($routeProvider, $httpProvider) {
       $routeProvider
         .when('/login', {
           // Angular route to present login fields
-          templateUrl: 'partials/login.html',
+          templateUrl: 'partials/landingPage.html',
           controller:  'usersController'
         })
         .when('/userProfile', {
