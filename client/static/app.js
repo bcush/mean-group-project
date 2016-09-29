@@ -21,9 +21,12 @@ app.config(function($routeProvider, $httpProvider) {
           templateUrl: 'partials/login.html',
           controller:  'usersController'
         })
+        .when('/search', {
+          templateUrl: 'partials/searchBarbers.html',
+          controller: 'barbersController'
+        })
         .when('/userProfile', {
-          templateUrl:'partials/userProfile.html',
-          controller:'usersController'
+          templateUrl:'partials/userProfile.html'
         })
         .when('/barberProfile', {
           templateUrl:'partials/barberProfile.html',
@@ -32,6 +35,10 @@ app.config(function($routeProvider, $httpProvider) {
         .when('/addBarber', {
           templateUrl:'partials/addBarber.html',
           controller:'barbersController'
+        })
+       .when('/addAppointment', {
+          templateUrl:'partials/addAppointment.html',
+          controller:'appointmentsController'
         })
        .otherwise({
           // Otherwise ???

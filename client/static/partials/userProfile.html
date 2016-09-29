@@ -1,22 +1,9 @@
 <div>
-  <div id="userInfo">
-    <!--{{user.username}}
-        {{user.phoneNumber}}
-        {{user.zipcode}}-->
+  <div ng-contoller="usersController">
+    <div id="userInfo">
+      <p>{{user.name}}</p>
+      <p>{{user.phone}}</p>
+      <p>{{user.zip}}</p>
+    </div>
   </div>
-  <h1>Nearby Barbers</h1>
-  <table>
-    <tr>
-      <th>Barbers Name</th>
-      <th>Location</th>
-      <th>Phone</th>
-      <th>Shop</th>
-    </tr>
-    <tr><!-- add ng-repeat take hard code out-->
-      <td>Larry Lira</td>
-      <td>In ya Hood</td>
-      <td>818-911-9111</td>
-      <td>Nappy Cuts</td>
-    </tr>
-  </table>
 </div>

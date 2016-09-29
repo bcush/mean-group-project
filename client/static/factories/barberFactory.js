@@ -20,6 +20,16 @@ app.factory('BarberFactory', ['$http', function($http) {
       }).then(function(user) {
         callback();
       });
+    },
+    getAll: function(callback){
+      $http({
+        method:'GET',
+        url:'/barbers'
+      }).then(function success(res){
+        callback(res.data)
+      },function failed(){
+        console.log('did not get barbers');
+      })
     }
   };
 }]);
