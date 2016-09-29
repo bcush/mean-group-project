@@ -21,15 +21,26 @@ app.factory('UserFactory', ['$http', function($http) {
         callback();
       });
     },
+
+    logout: function(callback) {
+      $http({
+        method: "/GET",
+        url: "/logout"
+      }).then(function() {
+        callback();
+      });
+    },
+
     getUser: function(callback){
       $http({
         method:"GET",
-        url:'/getUser',
+        url:'/users',
       }).then(function(res){
-        callback(res.data)
+        callback(res.data);
       },function(){
         console.log('Could not get user');
-      })
+      });
     }
+
   };
 }]);

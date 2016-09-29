@@ -1,25 +1,29 @@
-<div>
+      <div class="col s12 m8 offset-m2 l6 offset-l3" ng-contoller="usersController">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img src="http://www.fillmurray.com/g/300/400" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>
+            <div class="col s10">
+              <span class="black-text">
+                {{user.name}} {{user.phone}} {{user.zip}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+<!-- <div>
   <div ng-contoller="usersController">
     <div id="userInfo">
-      <p>{{user.name}}</p>
-      <p>{{user.phone}}</p>
-      <p>{{user.zip}}</p>
+      <img class="responsive-img" src="http://www.fillmurray.com/g/300/400">
+      <p>Client: {{user.name}}</p>
+      <i class="material-icons prefix">phone</i> {{user.phone}}
+      <p>Zipcode: {{user.zip}}</p>
     </div>
   </div>
-  <div ng-controller="barbersController">
-    <h1>Nearby Barbers</h1>
-    <table>
-      <tr>
-        <th>Barbers Name</th>
-        <th>Location</th>
-        <th>Phone</th>
-
-      </tr>
-      <tr ng-repeat="barber in barbers"><!-- add ng-repeat take hard code out-->
-        <td>{{barber.name}}</td>
-        <td>{{barber.location}}</td>
-        <td>{{barber.phone}}</td>
-      </tr>
-    </table>
-  </div>
 </div>
+ -->

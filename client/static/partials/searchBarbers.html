@@ -1,0 +1,17 @@
+<div ng-controller="barbersController">
+  <h1>Nearby Barbers</h1>
+  Search:<input type="text" ng-model='search'>
+  <table>
+    <tr>
+      <th>Barbers Name</th>
+      <th>Location</th>
+      <th>Phone</th>
+
+    </tr>
+    <tr ng-repeat="barber in barbers | orderBy: '-created_at' | filter : search"><!-- add ng-repeat take hard code out-->
+      <td>{{barber.name}}</td>
+      <td>{{barber.location}}</td>
+      <td>{{barber.phone}}</td>
+    </tr>
+  </table>
+</div>
