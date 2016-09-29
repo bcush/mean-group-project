@@ -41,6 +41,10 @@ app.config(function($routeProvider, $httpProvider) {
           templateUrl:'partials/addBarber.html',
           controller:'barbersController'
         })
+       .when('/addAppointment/:barber_id', {
+          templateUrl:'partials/addAppointment.html',
+          controller:'appointmentsController'
+        })
        .when('/addAppointment', {
           templateUrl:'partials/addAppointment.html',
           controller:'appointmentsController'

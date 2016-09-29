@@ -6,12 +6,14 @@
       <th>Barbers Name</th>
       <th>Location</th>
       <th>Phone</th>
+      <th>Appointment</th>
 
     </tr>
     <tr ng-repeat="barber in barbers | orderBy: '-created_at' | filter : search"><!-- add ng-repeat take hard code out-->
       <td>{{barber.name}}</td>
       <td>{{barber.location}}</td>
       <td>{{barber.phone}}</td>
+      <td><a href="/#/addAppointment/{{barber._id}}">Add Appt</a></td>
     </tr>
   </table>
 </div>
