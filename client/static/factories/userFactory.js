@@ -34,10 +34,10 @@ app.factory('UserFactory', ['$http', function($http) {
     getUser: function(callback){
       $http({
         method:"GET",
-        url:'/users',
+        url:'/getUser',
       }).then(function(res){
         callback(res.data);
-      },function(){
+      },function failed(){
         console.log('Could not get user');
       });
     }
