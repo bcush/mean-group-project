@@ -1,9 +1,31 @@
 <!-- Need a page that let's the barber see upcoming appointments, make notes on particular client -->
+<style media="screen">
+img {
+    padding: 0 0px;
+    float: left;
+    width: 14.99999%;
+}
+.shop {
+    padding: 0 0px;
+    float: left;
+    width: 54.99999%;
+}
+.barber {
+	background-image: url("https://i.ytimg.com/vi/EkQatS3RF10/maxresdefault.jpg");
+	width: 1000;
+	height: 500;
+}
+</style>
 
 <div ng-controller="barbersController">
+<img src="https://d30y9cdsu7xlg0.cloudfront.net/png/7109-200.png" alt="" />
 
-<h3>Barber</h3>
-		<table id="barbersTable">
+
+<h3>{{barber.name}}</h3>
+<p>Location: {{barber.location}}</p>
+<p>Phone: {{barber.phone}}</p>
+
+		<!-- <table id="barbersTable">
 			<tr>
 				<th>Barber</th>
 				<th>Location</th>
@@ -14,9 +36,9 @@
 				<td>{{barber.data.location}}</td>
 				<td>{{barber.data.phone}}</td>
 			</tr>
-		</table>
+		</table> -->
 </div>
-
+</div>
 
 <!-- <div>
 		<h3>Barber Profile</h3>
