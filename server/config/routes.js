@@ -26,7 +26,7 @@ module.exports = function(app) {
   app.post('/register', users.register);
   app.post('/login', users.login);
   app.get('/logout', users.logout);
-  app.get('/users/whoami', users.whoami);
+  // app.get('/users/whoami', users.whoami);
   app.get('/getUser', users.getUser);
  // app.delete('/users/:user_id', users.delete);
 
@@ -37,7 +37,7 @@ module.exports = function(app) {
   app.delete('/barbers/:barber_id', barbers.delete);
 
   // test route
-  app.get('/test', users.whoami);
+  // app.get('/test', users.whoami);
 
   // This is our routes for Appointments
   app.get('/appointments', appointments.getAll);
