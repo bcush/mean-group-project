@@ -32,9 +32,12 @@ module.exports = function(app) {
 
   // This is our routes for Barbers
   app.get('/barbers', barbers.getAll);
-  app.get('/barbers/:barber_id', barbers.get);
+  app.get('/barbers/:id', barbers.get);
   app.post('/barbers', barbers.add);
   app.delete('/barbers/:barber_id', barbers.delete);
+
+  // test route
+  app.get('/test', users.whoami);
 
   // This is our routes for Appointments
   app.get('/appointments', appointments.getAll);

@@ -47,8 +47,9 @@ module.exports = {
   },
 
   // Get a Barber
-  get: function(res, req) {
-    Barber.update({_id: req.params.id}).exec(function(err, barber) {
+  get: function(req, res) {
+    console.log("from server ", req.params.id);
+    Barber.findOne({_id: req.params.id}).exec(function(err, barber) {
       if (err) {
         res.status(500).send(err);
       } else {

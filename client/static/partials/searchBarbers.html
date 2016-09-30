@@ -9,7 +9,7 @@
 
     </tr>
     <tr ng-repeat="barber in barbers | orderBy: '-created_at' | filter : search"><!-- add ng-repeat take hard code out-->
-      <td>{{barber.name}}</td>
+      <td><a href="#barber/{{barber._id}}">{{barber.name}}</a></td>
       <td>{{barber.location}}</td>
       <td>{{barber.phone}}</td>
     </tr>

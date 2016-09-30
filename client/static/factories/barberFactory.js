@@ -21,6 +21,17 @@ app.factory('BarberFactory', ['$http', function($http) {
         callback();
       });
     },
+
+    get: function(id,callback){
+      $http({
+        method:"GET",
+        url:'/barbers/'+id
+      }).then(function(res){
+        // barbers.data = res.data;
+        callback(res.data);
+      });
+    },
+
     getAll: function(callback){
       $http({
         method:'GET',
