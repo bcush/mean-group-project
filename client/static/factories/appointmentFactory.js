@@ -12,6 +12,15 @@ app.factory('AppointmentFactory', ['$http', function($http) {
       });
     },
 
+    delete: function(appointment, callback) {
+      $http({
+        method: "DELETE",
+        url: "/appointments/" + appointment._id
+      }).then(function(appointment) {
+        callback();
+      });
+    },
+
     login: function(user, callback) {
       $http({
         method: "POST",

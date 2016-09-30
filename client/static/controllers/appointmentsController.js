@@ -10,6 +10,13 @@ app.controller('appointmentsController', ['$scope', '$location', '$routeParams',
     });
   };
 
+  $scope.delete = function(appointment) {
+    AppointmentFactory.delete(appointment, function() {
+      console.log('from appointmentsController');
+      $location.url('#/appointments');
+    });
+  };
+
   $scope.getAll = function(){
     AppointmentFactory.getAll(function(data){
       $scope.appointments = data;
