@@ -1,15 +1,19 @@
 <div ng-controller="barbersController">
-  <h1>Nearby Barbers</h1>
-  Search:<input type="text" ng-model='search'>
-  <table>
-    <tr>
-      <th>Barbers Name</th>
-      <th>Location</th>
-      <th>Phone</th>
-      <th>Appointment</th>
-
-    </tr>
-    <tr ng-repeat="barber in barbers | orderBy: '-created_at' | filter : search"><!-- add ng-repeat take hard code out-->
+  <h4 class="center">Browse and search for Barbers</h4>
+  <div class="input-field">
+    <input id="search" type="text" ng-model='search'>
+    <label for="search">Search</label>
+  </div>
+  <table class="striped responsive-table centered">
+    <thead>
+      <tr>
+        <th>Barber's Name</th>
+        <th>Location</th>
+        <th>Phone</th>
+        <th>Appointment</th>
+      </tr>
+  </thead>
+    <tr ng-repeat="barber in barbers | orderBy: 'name' | filter : search">
       <td>{{barber.name}}</td>
       <td>{{barber.location}}</td>
       <td>{{barber.phone}}</td>
