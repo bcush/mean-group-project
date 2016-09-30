@@ -40,6 +40,15 @@ app.factory('UserFactory', ['$http', function($http) {
       },function failed(){
         console.log('Could not get user');
       });
+    },
+
+    test: function(callback) {
+      $http({
+        method: "/GET",
+        url: "/test"
+      }).then(function() {
+        callback();
+      });
     }
 
   };

@@ -33,9 +33,8 @@ app.config(function($routeProvider, $httpProvider) {
           templateUrl:'partials/userProfile.html',
           controller:  'usersController'
         })
-        .when('/barberProfile', {
-          templateUrl:'partials/barberProfile.html',
-          controller:'barbersController'
+        .when('/barber/:id', {
+            templateUrl:'partials/barberProfile.html'
         })
         .when('/addBarber', {
           templateUrl:'partials/addBarber.html',
@@ -49,6 +48,10 @@ app.config(function($routeProvider, $httpProvider) {
           templateUrl:'partials/addAppointment.html',
           controller:'appointmentsController'
         })
+        .when('/test', {
+           templateUrl:'partials/profile.html',
+           controller:'usersController'
+         })
        .otherwise({
           // Otherwise ???
           redirectTo: '/login'
