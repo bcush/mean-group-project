@@ -1,36 +1,37 @@
-<!-- Need a page that let's the barber see upcoming appointments, make notes on particular client -->
-
 <div ng-controller="barbersController">
+<!-- Need a page that let's the barber see upcoming appointments, make notes on particular client -->
+<style media="screen">
+img {
+	padding-top: 5px;
+	padding-right: 20px;
+	padding-bottom: 50px;
+	padding-left: 20px;
+  float: left;
+  width: 20.99999%;
+}
+.shop {
+    padding: 0 0px;
+    float: left;
+    width: 54.99999%;
+}
+.barber {
+	background-image: url("https://i.ytimg.com/vi/EkQatS3RF10/maxresdefault.jpg");
+	width: 1000;
+	height: 500;
+}
+</style>
 
-<h3>Barber</h3>
-		<table id="barbersTable">
-			<tr>
-				<th>Barber</th>
-				<th>Location</th>
-				<th>Phone</th>
-			</tr>
-			<tr>
-				<td>{{barber.name}}</td>
-				<td>{{barber.data.location}}</td>
-				<td>{{barber.data.phone}}</td>
-			</tr>
-		</table>
+<!-- <div class="col s12 m8 offset-m2 l6 offset-l3"> -->
+	<div class="card-panel grey lighten-5 z-depth-1">
+		<!-- <div class="row valign-wrapper"> -->
+			<img src="https://d30y9cdsu7xlg0.cloudfront.net/png/7109-200.png" alt="" />
+
+
+			<h3>{{barber.name}}</h3>
+			<p>Location: {{barber.location}}</p>
+			<p>Phone: {{barber.phone}}</p>
+		</div>
+	</div>
 </div>
 
-
-<!-- <div>
-		<h3>Barber Profile</h3>
-
-		<table width=400px>
-			<tr>
-				<th>Barber</th>
-				<th>Location</th>
-				<th>Phone</th>
-			</tr>
-			<tr>
-				<td>Bill Barber</td>
-				<td>Burbank</td>
-				<td>213-555-1212</td>
-			</tr>
-		</table>
-</div> -->
+</div>
