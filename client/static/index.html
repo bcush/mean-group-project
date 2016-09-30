@@ -30,6 +30,11 @@
   <script type="text/javascript" src="controllers/barbersController.js"></script>
   <script type="text/javascript" src="controllers/appointmentsController.js"></script>
 
+  <!-- google maps -->
+  <script src="assets/maps.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6RdvGQjgcgfgPIjYqSmpkMR3Ae4WvBYM&libraries=places&callback=initMap" async defer></script>
+
+
   <script type="text/javascript">
     $(document).ready(function(){
       $('.button-collapse').sideNav();
@@ -42,20 +47,20 @@
   <!-- navbar -->
   <div class="navbar-fixed">
     <nav class="blue darken-4">
-      <div class="nav-wrapper">
-        <a href="#" id="logo-container" class="brand-logo center">Barbers</a>
+      <div class="nav-wrapper" ng-controller='usersController'>
+        <a href="#" id="logo-container" class="brand-logo center">MEAN Cuts</a>
         <a href="#" data-activates="nav-menu" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#/home">Home</a></li>
           <li><a href="#/search">Search</a></li>
-          <li><a href="#/logout">Logout</a></li>
-          <li><a class="modal-trigger" href="#login">Login</a></li>
-          <li><a class="modal-trigger" href="#register">Register</a></li>
+          <li ng-show='user'><a href="#/logout">Logout</a></li>
+          <li ng-hide='user'><a class="modal-trigger" href="#login">Login</a></li>
+          <li ng-hide='user'><a class="modal-trigger" href="#register">Register</a></li>
         </ul>
         <ul class="side-nav" id="nav-menu">
-          <li><a class="modal-trigger" href="#login">Login</a></li>
-          <li><a class="modal-trigger" href="#register">Register</a></li>
-          <li><a href="#/logout">Logout</a></li>
+          <li ng-hide='user'><a class="modal-trigger" href="#login">Login</a></li>
+          <li ng-hide='user'><a class="modal-trigger" href="#register">Register</a></li>
+          <li ng-show='user'><a href="#/logout">Logout</a></li>
           <li><div class="divider"></div></li>
           <li><a href="#/search">Search</a></li>
         </ul>
@@ -72,11 +77,6 @@
     <div ng-view="">
     </div>
   </div>
-
-  <!-- <div class="container">
-    <div id="calendar"></div>
-  </div> -->
-
 
   <!-- modal: login -->
 <div ng-controller="usersController">
@@ -139,10 +139,12 @@
             <label for="passconf">Confirm Password</label>
           </div>
         </div>
+
       <!-- </form> -->
-    </div>
-    <div class="modal-footer">
-      <button class="modal-action btn-flat btn waves-effect" type="submit">Create Account</button>
+
+      </div>
+      <div class="modal-footer">
+        <button class="modal-action btn-flat btn waves-effect" type="submit">Create Account</button>
       </form>
     </div>
   </div>
