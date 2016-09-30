@@ -16,14 +16,14 @@ app.controller('appointmentsController', ['$scope', '$location', '$routeParams',
     });
   },
 
-  $scope.whoami = function(){
-    AppointmentFactory.whoami(function(data){
-      $scope.currentUser = data;
-    });
-  };
+  // $scope.whoami = function(){
+  //   AppointmentFactory.whoami(function(data){
+  //     $scope.currentUser = data;
+  //   });
+  // };
 
   $scope.getAll();
-  $scope.whoami();
+  // $scope.whoami();
 
   // $scope.login = function(user){
   //   AppointmentFactory.login(user, function() {

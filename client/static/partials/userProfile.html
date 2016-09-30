@@ -37,7 +37,7 @@
 <div class="col s6 push-s3" ng-controller='appointmentsController'>
   <table>
     <thead>
-      <th><h5>Your appointments</h5></th>
+      <th colspan="3"><h5>Your appointments</h5></th>
     </thead>
     <tbody>
       <tr ng-repeat='appt in appointments | filter : $scope.user'>
@@ -46,6 +46,7 @@
         <span ng-if='appt.time = 12'>{{ appt.time }} PM</span>
         <span ng-if='appt.time >= 13'>{{ appt.time - 12 }} PM</span>
       </td>
+      <td><a href="/#/barber/{{ appt._barber }}">Location</a></td>
       <td><a href="/#/appointments/{{ appt._id }}">Delete Appointment</a></td>
     </tbody>
   </table>
