@@ -32,16 +32,16 @@ app.factory('AppointmentFactory', ['$http', function($http) {
       });
     },
 
-    whoami: function(callback){
-      $http({
-        method:'GET',
-        url:'/users/whoami'
-      }).then(function success(res){
-        callback(res.data);
-      },function failed(){
-        console.log('did not get user');
-      });
-    }
+    // whoami: function(callback){
+    //   $http({
+    //     method:'GET',
+    //     url:'/users/whoami'
+    //   }).then(function success(res){
+    //     callback(res.data);
+    //   },function failed(){
+    //     console.log('did not get user');
+    //   });
+    // }
 
   };
 }]);
