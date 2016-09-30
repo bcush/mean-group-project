@@ -1,17 +1,5 @@
 <div ng-controller="barbersController">
-<<<<<<< HEAD
-  <h1>Nearby Barbers</h1>
-  Search:<input type="text" ng-model='search'>
-  <table>
-    <tr>
-      <th>Barbers Name</th>
-      <th>Location</th>
-      <th>Phone</th>
 
-    </tr>
-    <tr ng-repeat="barber in barbers | orderBy: '-created_at' | filter : search"><!-- add ng-repeat take hard code out-->
-      <td><a href="#barber/{{barber._id}}">{{barber.name}}</a></td>
-=======
   <h4 class="center">Browse and search for Barbers</h4>
   <div class="input-field">
     <input id="search" type="text" ng-model='search'>
@@ -27,8 +15,7 @@
       </tr>
   </thead>
     <tr ng-repeat="barber in barbers | orderBy: 'name' | filter : search">
-      <td>{{barber.name}}</td>
->>>>>>> master
+      <td><a href="#barber/{{barber._id}}">{{barber.name}}</a></td>
       <td>{{barber.location}}</td>
       <td>{{barber.phone}}</td>
       <td><a href="/#/addAppointment/{{barber._id}}">Add Appt</a></td>
