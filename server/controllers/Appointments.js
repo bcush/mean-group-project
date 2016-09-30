@@ -48,8 +48,10 @@ module.exports = {
   },
 
   // Get a Appointment
-  get: function(res, req) {
-    Appointment.update({_id: req.params.id}).exec(function(err, appointment) {
+  get: function(req, res) {
+    var barberQuery = '"' + req.params.barber_id + '"';
+    var dateQuery = '"' + req.body.date + '"';
+    Appointment.find({"_barber": new ObjectId(barberQuery), "date": new ISODate(dateQuery)}).exec(function(err, appointment) {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -60,7 +62,7 @@ module.exports = {
 
   // Delete a Appointment
   delete: function(req, res) {
-    Appointment.remove({_id: req.params.id}).exec(function(err) {
+    Appointment.remove({_id: req.params.appointment_id}).exec(function(err) {
       if (err) {
         res.status(500).send(err);
       } else {
