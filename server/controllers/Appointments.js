@@ -49,9 +49,14 @@ module.exports = {
 
   // Get a Appointment
   get: function(req, res) {
-    var barberQuery = '"' + req.params.barber_id + '"';
-    var dateQuery = '"' + req.body.date + '"';
-    Appointment.find({"_barber": new ObjectId(barberQuery), "date": new ISODate(dateQuery)}).exec(function(err, appointment) {
+    console.log(req.params.barber_id);
+    var barberQuery = "\"_barber\": new ObjectId(\"" + req.params.barber_id + "\")";
+    var dateQuery = "\"date\" : new ISODate(\"" + req.body.date + "\")";
+
+    console.log(barberQuery);
+    console.log(dateQuery);
+
+    Appointment.find({barberQuery, dateQuery}).exec(function(err, appointment) {
       if (err) {
         res.status(500).send(err);
       } else {

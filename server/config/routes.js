@@ -38,8 +38,8 @@ module.exports = function(app) {
 
   // This is our routes for Appointments
   app.get('/appointments', appointments.getAll);
-  app.get('/appointments/:barber_id', appointments.getAll);
   app.post('/appointments/:barber_id', appointments.get);
+  app.get('/appointments/:barber_id', appointments.get);
   app.post('/appointments', appointments.add);
   app.delete('/appointments/:appointment_id', appointments.delete);
 
