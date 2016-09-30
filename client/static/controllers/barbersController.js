@@ -23,7 +23,7 @@ app.controller('barbersController', ['$scope', '$location', 'BarberFactory', '$r
       //   console.log($scope.barber);
     });
   }
-  $scope.get();
+  // $scope.get();
 
   $scope.getAll();
 
