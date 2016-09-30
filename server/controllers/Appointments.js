@@ -25,6 +25,7 @@ module.exports = {
 
   // Add a new Appointment
   add: function(req,res) {
+    console.log(req.body);
     var appointment = new Appointment(req.body);
     appointment.save(function(err) {
       if (err) {

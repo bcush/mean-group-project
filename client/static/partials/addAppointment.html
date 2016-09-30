@@ -1,3 +1,4 @@
+<div>
   <h3>Add Appointment</h3>
   <form ng-submit="add(newAppointment)">
     <label>Date: </label>
@@ -18,9 +19,6 @@
     <br>
 
     <!-- Hidden inputs -->
-    <input type="hidden" ng-model="newAppointment._user">
-    <input type="hidden" ng-model="newAppointment._barber">
-
-		<button>Submit Appointment</button>
-	</form>
+    <button type="submit">Submit Appointment</button>
+  </form>
 </div>

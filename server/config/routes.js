@@ -27,7 +27,7 @@ module.exports = function(app) {
   app.post('/login', users.login);
   app.get('/logout', users.logout);
   app.get('/users/whoami', users.whoami);
-  app.get('/users', users.getUser);
+  app.get('/getUser', users.getUser);
  // app.delete('/users/:user_id', users.delete);
 
   // This is our routes for Barbers
