@@ -1,0 +1,16 @@
+<div ng-controller="barbersController">
+
+<h3>Barbers</h3>
+    <table id="barbersTable" border=1>
+      <tr>
+        <th>Barber</th>
+        <th>Location</th>
+        <th>Phone</th>
+      </tr>
+      <tr ng-repeat="barber in barbers.data">
+        <td><a href="#barber/{{barber._id}}">{{barber.name}}</a></td>
+        <td>{{barber.location}}</td>
+        <td>{{barber.phone}}</td>
+      </tr>
+    </table>
+</div>

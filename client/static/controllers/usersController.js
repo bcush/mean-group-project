@@ -25,6 +25,12 @@ app.controller('usersController', ['$scope', '$location', 'UserFactory', functio
     });
   };
 
+  $scope.test = function(user){
+    UserFactory.test(user, function() {
+      $location.url('/test');
+    });
+  };
+
   $scope.getUser();
 
 }]);
